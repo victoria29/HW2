@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework2</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div id="one">one</div>
+
+<script>
+    // Добавьте после дива с id=one еще один див с текстом two и id=two
+    // На клик по id=two добавьте перед ним див с id - two_first, а див с id=two измените на two_second
+    var div = document.getElementById('one');
+    div.insertAdjacentHTML("beforeEnd", "<div id=\"two\">two</div>");
+
+    document.getElementById('two').onclick = function () {
+        addTwo_First()
+    };
+
+    function addTwo_First(){
+        var divSecond = document.getElementById('two');
+        divSecond.insertAdjacentHTML("beforeBegin", "<div id=\"two_first\">two_first</div>");
+        var node = document.getElementById("two");
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+        document.getElementById('two_first').insertAdjacentHTML("beforeEnd", "<div id=\"two_second\">two_second</div>");
+
+
+    }
+</script>
+</body>
+</html>
